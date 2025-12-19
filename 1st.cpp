@@ -267,16 +267,116 @@ int main(){
     //     cout<<" Not a Prime no.";
     // }
 
-    int n=10;
-    for (int i=1; i<=n ; i++){
-        int m= 10;
-        for(int j =1;j<=m;j++){
-            cout<<"X";
-        }
-        cout<<endl;
-    }
+    // int n=10;
+    // for (int i=1; i<=n ; i++){
+    //     int m= 10;
+    //     for(int j =1;j<=m;j++){
+    //         cout<<"X";
+    //     }
+    //     cout<<endl;
+    // }
+
+
+    // for(int i=1;i<=4;i++){   //outer
+    //     for(int j=1;j<=4;j++){  //inner
+    //         cout<<"*"<<" ";
+    //         cout<<j<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+
+    //  for(int i=0;i<4;i++){   //outer
+    //     for(int j=0;j<4;j++){  //inner
+    //         cout<<"*"<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+ 
+    // int n=8;
+    // for( int i=0;i<n;i++){
+    //     char ch ='A';
+    //     for( int j=0;j<n;j++){
+    //         cout<<ch<<" ";
+    //         ch++;
+    //     }
+    //     cout<<endl;
+    // }
+
+    // int n=3;
+    // int num=1;
+    // for(int i=0;i<n;i++){
+    //     for(int j=0;j<n;j++){
+    //         cout<<num<<" ";
+    //         num++;
+    //     }
+    //     cout<<endl;
+    // }
+
+
+    // int n=3;
+    // char ch='A';
+    // for(int i=0;i<=n-1;i++){
+    //     for(int j=0;j<=n-1;j++){
+    //         cout<<ch<<" ";
+    //         ch++;
+    //     }
+    //     cout<<endl;
+    // }
+
+    // int n=4;
+    // for(int i=0;i<n;i++){
+    //     // for(int j=i+1;j<=n;j++){   //stars decrease(1,2,3)
+    //     for(int j=0;j<i+1;j++){     //stars increase(n,n-1)
+    //         cout<<"*"<<" ";
+    //     }
+    //     cout<<endl;
+    // }
 
 
 
+    // int n=4;
+    // for(int i=0;i<n;i++){
+    //     for(int j=0;j<i+1;j++){
+    //         cout<<i+1<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+
+    // int n=5;
+    // for(int i=0;i<n;i++){
+    //     char ch='A'+i;
+    //     for(int j=0; j<=i;j++){
+    //         cout<<ch<<" ";
+            
+    //     }
+    //     cout<<endl;
+    // }
+
+
+    // int n=5;
+    // char ch='A';
+    // for(int i=0;i<n;i++)
+    // {
+    //     for(int j=0;j<=i;j++){
+    //         cout<<ch<<" ";
+    //         ch++;
+    //     }
+    //     cout<<endl;
+    // }
+
+
+    // int n=4;
+    // for(int i=0;i<n;i++){
+    //     int num =1;
+    //     for(int j=0;j<i+1;j++){
+    //         cout<<num<<" ";
+    //         num++;
+    //     }
+    //     cout<<endl;
+    // }
+
+
+
+    
     return 0;
 }
