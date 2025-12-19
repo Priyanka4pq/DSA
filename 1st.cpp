@@ -141,9 +141,142 @@ int main(){
     // }
 
 
-    char ch;
-    cout<<"Enter character"<<endl;
-    cin>>ch;
+    // char ch;
+    // cout<<"Enter character"<<endl;
+    // cin>>ch;
+    // if(ch>='a' && ch<='z'){
+    //     cout<<"LowerCase";
+    // }else{
+    //     cout<<"UpperCase";
+    // }
+
+    // char ch;
+    // cout<<"Enter character"<<endl;
+    // cin>>ch;
+    // if(ch>=65 && ch<=90){
+    //     cout<<"UpperCase";
+    // }else{
+    //     cout<<"LowerCase";
+    // }
+
+
+    //TERNARY OPERATOR
+    // int n=89;
+    // cout<<(n>=0?"Positive":"Negative")<<endl;
+
+    //LOOP
+
+    // int i=1;
+
+    // while (i<=20)
+    // {
+    //     // cout<<"Count is : "<<i<<endl;
+    //     cout<<i;
+    //     i++;
+    // }
+    // cout<<endl;
+    
+
+    // int i;
+    // cout<<"Enter the number : ";
+    // cin>>i;
+    // while(i<=78){
+    //     cout<<i<<" ";
+    //     i++;
+    // }
+
+
+    // FOR LOOP
+
+    // for(int i=1;i<=6;i++){
+    //     cout<<i<<" ";
+    // }
+
+    // int i;
+    // int n;
+    // cout<<"Enter i"<<endl;
+    // cin>>n;
+    // // for(i=n;i<10;i=i+2){
+    // for(i=n;i<10;i++){
+    //     cout<<i<<" ";
+    // }
+
+    // Q: Sum of numbers from 1 to n
+    // int n;
+    // int sum=0;
+    // cout<<"Enter n :\n";
+    // cin>>n;
+    // for(int i=1; i<=n; i++){
+    //     sum+=i;
+    //     if(i==5){
+    //         break;
+    //     }
+    // }
+    // cout<<sum<<" ";
+
+
+    // Q: Sum of all Odd numbers from 1 to N
+
+    // int n =5;
+    // int i;
+    // int sum=0;
+    // for(i=1;i<=n;i++){
+    //     if(i%2!=0){
+    //         // sum=sum+i;
+    //         sum +=i;
+    //     }
+    // }
+    // cout<<"Sum of Odd numbers is : "<<sum;
+
+
+    //using while loop
+    // int n=5;
+    // int oddSum=0;
+    // int i=1;
+    // while(i<=5){
+    //     if(i%2!=0){
+    //         oddSum+=i;
+    //     }
+    //     i++;
+    // }
+    // cout<<"Sum of Odd numbers : "<<oddSum<<endl;
+
+
+    // int n=10;
+    // int i=1;
+    // do{
+    //     cout<<i<<" ";
+    //     i++;
+    // }while(i<=10);
+
+    // Q: Check if a number is prime or not.
+
+    // int n=7;
+    // int i;
+    // bool isPrime= true;
+    // // for(i=2;i<=n-1;i++){
+    // for(i=2;i*i<=n;i++){
+    //     if(n%i==0){
+    //         isPrime = false;
+    //         break;
+    //     }
+    // }
+    // if(isPrime == true){
+    //     cout<<"prime no.\n";
+    // }else{
+    //     cout<<" Not a Prime no.";
+    // }
+
+    int n=10;
+    for (int i=1; i<=n ; i++){
+        int m= 10;
+        for(int j =1;j<=m;j++){
+            cout<<"X";
+        }
+        cout<<endl;
+    }
+
+
 
     return 0;
 }
