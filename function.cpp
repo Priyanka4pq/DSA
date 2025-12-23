@@ -139,24 +139,89 @@ using namespace std;
 
 // Q: Calculate nCr binomial coefficient for n and r.
 
-int factorial(int n){
-    int fact=1;
-    for(int i=1;i<=n;i++){
-        fact*=i;
+// int factorial(int n){
+//     int fact=1;
+//     for(int i=1;i<=n;i++){
+//         fact*=i;
+//     }
+//     return fact;
+// }
+
+// int nCr(int n, int r){
+//     int fact_n=factorial(n);
+//     int fact_r=factorial(r);
+//     int fact_nmr=factorial(n-r);
+
+//     return fact_n/(fact_r*fact_nmr);
+// }
+// int main(){
+//     int n=8,r=2;
+//     cout<<nCr(n,r)<<endl;
+//     return 0;
+// }
+
+
+// Q: Write a Function to check if a number is prime or not.
+// int checkPrime(int n){
+//     bool isPrime = true;
+//     int i;
+//     for( i=2;i<n;i++){
+//         if(n%i==0){
+//             isPrime=false;
+//             break;
+//         }
+//     }
+//     return isPrime;
+// }
+// int main(){
+//     cout<<checkPrime(5)<<endl;
+//     cout<<checkPrime(4)<<endl;
+//     return 0;
+// }
+
+
+// Q: WAF to print all prime no. from 1 to n.
+// int printAllPrime(int n){
+//     for(int i=2;i<=n;i++){
+//         bool isPrime = true;
+//         for(int j=2;j<=i/2;j++){
+//             if(i%j==0){
+//                 isPrime=false;
+//                 break;
+//             }
+//         }
+//         if(isPrime){
+//             cout<<i<<endl;
+//         }
+//     }
+// }
+// int main(){
+//     printAllPrime(12);
+//     return 0;
+// }
+
+
+// Q: WAF to print nth fibonacci.
+int printNFibonacci(int n){
+    int a=0;
+    int b=1;
+    int c;
+    if(n==1){
+        cout<<a;
+        return;
     }
-    return fact;
-}
-
-int nCr(int n, int r){
-    int fact_n=factorial(n);
-    int fact_r=factorial(r);
-    int fact_nmr=factorial(n-r);
-
-    return fact_n/(fact_r*fact_nmr);
+    if(n==2){
+        cout<<b;
+        return;
+    }
+    for(int i=3;i<=n;i++){
+        c=a+b;
+        a=b;
+        b=c;
+    }
+    cout<<b;
 }
 int main(){
-    int n=8,r=2;
-    cout<<nCr(n,r)<<endl;
-
+    printNFibonacci(12);
     return 0;
 }
