@@ -149,22 +149,72 @@ using namespace std;
 
 // Q: Reverse an array
 
-void reverseArray(int arr[], int size){
-    int start =0, end=size-1;
-    while(start<=end){
-        swap(arr[start],arr[end]);
-        start++;
-        end--;
+// void reverseArray(int arr[], int size){
+//     int start =0, end=size-1;
+//     while(start<=end){
+//         swap(arr[start],arr[end]);
+//         start++;
+//         end--;
+//     }
+// }
+// int main(){
+//     int arr[]={4,2,7,8,1,2,5};
+//     int size = 7;
+//     reverseArray(arr,size);
+
+//     for(int i=0;i<size; i++){
+//         cout<<arr[i]<<" ";
+//     }
+//     cout<<endl;
+//     return 0;
+// }
+
+
+// Q: WAF to calculate sum and product of all no. in an array
+
+// int sumProductOfAllNumber(int arr[],int size, int &sum, int &product){
+//     sum=0;
+//     product =1;
+//     for(int i=0;i<size;i++){
+//         sum += arr[i];
+//         product *= arr[i];
+//     }  //int can only return one value
+// }
+// int main(){
+//     int arr[]={1,2,3,4,5};
+//     int size=5;
+//     int sum, product;
+//     sumProductOfAllNumber(arr,size, sum, product);
+
+//     cout << "Sum = " << sum << endl;
+//     cout << "Product = " << product << endl;
+//     return 0;
+// }
+
+
+// Q: WAF to swap the max & min no. of an array.
+
+void swapMaxMinNo(int arr[], int size){
+     int min=0;
+    int max=0;
+    for(int i=0;i<size;i++){
+        if(arr[i]<arr[min]){
+            min=i;
+        }
+        if(arr[i]>arr[max]){
+            max=i;
+        }
     }
+    swap(arr[min],arr[max]);
 }
 int main(){
-    int arr[]={4,2,7,8,1,2,5};
-    int size = 7;
-    reverseArray(arr,size);
-
-    for(int i=0;i<size; i++){
-        cout<<arr[i]<<" ";
+    int arr[]={23,54,12,67,72};
+    int size =5;
+   
+    swapMaxMinNo(arr,size);
+     cout << "Array after swapping min & max: ";
+    for(int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
     }
-    cout<<endl;
     return 0;
 }
