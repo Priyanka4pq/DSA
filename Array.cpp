@@ -194,27 +194,70 @@ using namespace std;
 
 // Q: WAF to swap the max & min no. of an array.
 
-void swapMaxMinNo(int arr[], int size){
-     int min=0;
-    int max=0;
+// void swapMaxMinNo(int arr[], int size){
+//      int min=0;
+//     int max=0;
+//     for(int i=0;i<size;i++){
+//         if(arr[i]<arr[min]){
+//             min=i;
+//         }
+//         if(arr[i]>arr[max]){
+//             max=i;
+//         }
+//     }
+//     swap(arr[min],arr[max]);
+// }
+// int main(){
+//     int arr[]={23,54,12,67,72};
+//     int size =5;
+   
+//     swapMaxMinNo(arr,size);
+//      cout << "Array after swapping min & max: ";
+//     for(int i = 0; i < size; i++) {
+//         cout << arr[i] << " ";
+//     }
+//     return 0;
+// }
+
+
+// Q: WAF to print all the unique values in an array.
+// int uniqueValue(int arr[],int size){
+//     for(int i=0;i<size;i++){
+//         int count =0;
+//         for(int j=0;j<size;j++){
+//             if(arr[i]==arr[j]){
+//                 count++;
+//         }
+//         }
+//         if(count==1){
+//             cout<<arr[i]<<endl;
+//         }
+//     }
+// }
+// int main(){
+//     int arr[]={22,12,23,32,32,12};
+//     int size =6;
+//     uniqueValue(arr,size);
+//     return 0;
+// }
+
+
+// WAF to print intersection of 2 arrays.
+void intersectionOfTwoArray(int arr1[],int arr2[],int size){
     for(int i=0;i<size;i++){
-        if(arr[i]<arr[min]){
-            min=i;
-        }
-        if(arr[i]>arr[max]){
-            max=i;
+        for(int j=0;j<size;j++){
+            if(arr1[i]==arr2[j]){
+               cout << arr1[i] << " ";
+                break; // avoid printing same element again
+            }
         }
     }
-    swap(arr[min],arr[max]);
+
 }
 int main(){
-    int arr[]={23,54,12,67,72};
-    int size =5;
-   
-    swapMaxMinNo(arr,size);
-     cout << "Array after swapping min & max: ";
-    for(int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
-    }
+    int arr1[]= {12,23,34,45,56,67};
+    int arr2[]= {12,23,21,32,67,23};
+    int size=6;
+    intersectionOfTwoArray(arr1,arr2,size);
     return 0;
 }

@@ -21,10 +21,9 @@ using namespace std;
 // }
 
 
-int x =10;
+int x =10;  //global scope-hr jgh use kr skte hai
 
 int main(){
-   
     cout<<x;
     return 0;
 }
