@@ -185,7 +185,6 @@ using namespace std;
 //     int size=5;
 //     int sum, product;
 //     sumProductOfAllNumber(arr,size, sum, product);
-
 //     cout << "Sum = " << sum << endl;
 //     cout << "Product = " << product << endl;
 //     return 0;
@@ -243,21 +242,20 @@ using namespace std;
 
 
 // WAF to print intersection of 2 arrays.
-void intersectionOfTwoArray(int arr1[],int arr2[],int size){
-    for(int i=0;i<size;i++){
-        for(int j=0;j<size;j++){
-            if(arr1[i]==arr2[j]){
-               cout << arr1[i] << " ";
-                break; // avoid printing same element again
-            }
-        }
-    }
-
-}
-int main(){
-    int arr1[]= {12,23,34,45,56,67};
-    int arr2[]= {12,23,21,32,67,23};
-    int size=6;
-    intersectionOfTwoArray(arr1,arr2,size);
-    return 0;
-}
+// void intersectionOfTwoArray(int arr1[],int arr2[],int size){
+//     for(int i=0;i<size;i++){
+//         for(int j=0;j<size;j++){
+//             if(arr1[i]==arr2[j]){
+//                cout << arr1[i] << " ";
+//                 break; // avoid printing same element again
+//             }
+//         }
+//     }
+// }
+// int main(){
+//     int arr1[]= {12,23,34,45,56,67};
+//     int arr2[]= {12,23,21,32,67,23};
+//     int size=6;
+//     intersectionOfTwoArray(arr1,arr2,size);
+//     return 0;
+// }
