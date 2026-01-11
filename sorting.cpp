@@ -3,14 +3,22 @@
 using namespace std;
 
 void bubbleSort(int arr[], int n){
-    for(int  i = 0; i < n-1 ; i++){
+    int count = 0;
+    for(int  i = 0; i < n-1 ; i++){   //O(n^2)-- is not a good time complexity.
+        bool isSwap = false;
+        count++;
         for (int j = 0; j < n-i-1 ; j++)
         {
            if(arr[j] > arr[j+1]){
             swap(arr[j], arr[j+1]);
+            isSwap = true;
            }
         }
+        if(!isSwap){   //arra is already sorted
+            break;
+        }
     }
+    cout<<count<<endl;
 }
 
 int main(){
