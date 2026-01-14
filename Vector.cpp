@@ -58,7 +58,48 @@ int main(){
     // cout<<vec.capacity()<<endl;  //capacity=8
 
 
+    // vector<int> vec = {1,2,3,4,5,6};
+
+    // vec.erase(vec.begin());   //removes 1st element
+    // vec.erase(vec.begin()+2);   //removes 2nd element
+
+//     vec.erase(vec.begin()+ 1, vec.begin()+4);   //erase can change vector size but not capacity
+//  range se ek next element ka index likhna hai ->vec.begin()+4 means 4th index se phle tk 
+//  sare delete kr do
+//     for(int val: vec){
+//         cout<< val << " ";
+//     }
+
+
+//INSERT
+    // vec.insert(vec.begin()+1 , 9);
+    // vec.clear();  //delete all element
+    //  for(int val: vec){
+    //     cout<< val << " ";
+    // }
+    // cout<<"size : "<<vec.size()<<endl;
+    // cout<<"capacity : "<<vec.capacity()<<endl;
+    // cout<<"isempty : "<<vec.empty()<<endl;  //cheack whether vector is empty(1) or not(0);
+
+
+    vector<int> vec = {1,2,3,4,5,6};
+    // cout<<"vector begin : "<< *(vec.begin())<<endl;
+    // cout<<"vector end : "<< *(vec.end())<<endl;   //it will garbage value cause end points to next to last element
     
 
+
+    //LOOPS ON VECTOR
+
+        // vector<int>::iterator it;   //it allows us to access direct memory location
+
+        // for (it = vec.begin(); it != vec.end(); it++)   //forward loop
+        // {
+        //     cout<<*(it)<<" ";
+        // }
+
+        vector<int>::reverse_iterator it;
+        for(it = vec.rbegin(); it != vec.rend(); it++){
+            cout<<*(it) <<" ";
+        }
     return 0;
 }
