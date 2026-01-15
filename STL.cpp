@@ -9,9 +9,10 @@
 #include <unordered_map>
 #include <set>
 #include <unordered_set>
+#include <algorithm>
 using namespace std;
 
-int main(){
+// int main(){
 
     //2. LIST------------->
 
@@ -223,15 +224,87 @@ int main(){
 
 
     //UNORDERED SET
-    unordered_set<int> s;
-    s.insert(1);
-    s.insert(2);
-    s.insert(3);
-    s.insert(4);
-    s.insert(5);
-    for(int val:s){
-        cout<< val << " ";   
-    }
 
-    return 0; 
+    // unordered_set<int> s;
+    // s.insert(1);
+    // s.insert(2);
+    // s.insert(3);
+    // s.insert(4);
+    // s.insert(5);
+    // for(int val:s){
+    //     cout<< val << " ";   
+    // }
+
+
+    // int arr[5] = {3,5,1,8,2};
+    // sort(arr,arr+ 5);   //n = 5
+    // for(int val: arr){
+    //     cout<<val<<" ";
+    // }
+
+    // vector<int> vec = {3,5,1,8,2};
+    // // sort(vec.begin(), vec.end());
+    // sort(vec.begin(), vec.end(), greater<int>());
+    // for(int val: vec){
+    //     cout<<val<<" ";
+    // }
+
+//     return 0; 
+// }
+
+// bool comparator(pair<int,int> p1, pair<int,int> p2){
+//     if(p1.second < p2.second) return true;
+//     if(p1.second > p2.second) return false;
+//     if(p1.first < p2.first) return true;
+//     else return false;
+// }
+// int main(){  
+//     vector<pair<int,int>> vec = {{3,1},{2,1},{4,1},{5,2}};
+//     // sort(vec.begin(), vec.end());  //sort on the basis of first value
+//     sort(vec.begin(), vec.end(), comparator); 
+//     for(auto p: vec){
+//         cout<<p.first<<" "<<p.second<<endl;
+//     }
+// }
+
+
+int main(){
+    // vector<int> vec = {1,2,3,4,5};
+    // // reverse(vec.begin(), vec.end());
+    // reverse(vec.begin()+1, vec.begin()+3);  //for a range
+
+    // for(auto val: vec){
+    //     cout<< val <<" ";
+    // }
+
+
+    //next permutation
+
+    // string s = "abc";
+    // next_permutation(s.begin(), s.end());
+    // prev_permutation(s.begin(),s.end());
+    // cout<<s<<endl;
+
+    // cout<< max(4,5) << " "<< min(6,1)<<endl;
+    // int a= 5, b=10;
+    // swap(a,b);
+    // cout<<a<<endl;
+
+
+    // vector<int> vec = {1,2,3,4,5};
+    // cout<< *max_element(vec.begin(),vec.end())<<endl;
+    // cout<< *min_element(vec.begin(),vec.end())<<endl;
+    // cout<<binary_search(vec.begin(),vec.end(), 4);
+    // cout<<binary_search(vec.begin(),vec.end(), 13);
+
+
+
+    int n1 = 15;
+    long int n2 = 15;
+    long long int n3 = 15;
+    cout<< __builtin_popcount(n1)<<endl;
+    cout<< __builtin_popcountl(n2)<<endl;
+    cout<< __builtin_popcountll(n3)<<endl;
+
+    return 0;
 }
