@@ -6,6 +6,9 @@
 #include <stack>
 #include <queue>
 #include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
 using namespace std;
 
 int main(){
@@ -142,18 +145,93 @@ int main(){
 
     // MAP---------------------------------------------------->
 
-    map<string,int> m;
-    m["tv"]=100;
-    m["headphones"]=50;
-    m["laptop"]=100;
-    m["tablets"]=120;
-    m["watch"]=50;
+    // map<string,int> m;
+    // m["tv"]=100;
+    // m["headphones"]=50;
+    // m["laptop"]=100;
+    // m["tablets"]=120;
+    // m["watch"]=50;
 
-    m.insert({"camera", 25});
+    // // m.insert({"camera", 25});
+    // m.emplace("camera", 45);
+    // m.erase("tv");
 
-    for(auto p: m){
-        cout<<p.first<<" "<<p.second<<endl;  //it will print sorted order of key not value
+    // for(auto p: m){
+    //     cout<<p.first<<" "<<p.second<<endl;  //it will print sorted order of key not value
+    // }
+    // if(m.find("camera")!=m.end()){
+    //     cout<< "found\n";
+    // }else{
+    //     cout<<"not found";
+    // }
+
+    // cout<<"count is = "<<m.count("laptop")<<endl;
+
+
+
+    //MULTIMAP- can store multiple and same keys;
+    // multimap<string, int> m;
+
+    // m.emplace("tv", 100);
+    // m.emplace("tv", 100);
+    // m.emplace("tv", 100);
+    // m.emplace("tv", 100);
+
+    // // m.erase("tv");  //whole tv will be deleted
+    // m.erase(m.find("tv"));   //only want to delete one instance, for this we can pass find()  
+    // for(auto p:m){
+    //     cout<<p.first<<" "<<p.second<<endl;
+    // }
+
+
+
+
+    //UNORDERED MAP-------- it arranege data in any order
+
+    // unordered_map<string, int> m;
+    // m.emplace("tv", 100);
+    // m.emplace("fridge", 100);
+    // m.emplace("watch", 100);
+    // m.emplace("laptop", 100);
+    // for(auto p:m){
+    //     cout<<p.first<<" "<<p.second<<endl;
+    // }
+
+
+
+
+
+    //SET---------> stores only unique value in a ordered manner
+
+    // set<int> s;
+    // s.insert(1);
+    // s.insert(2);
+    // s.insert(2);
+    // s.insert(3);
+    // s.insert(4);
+    // s.insert(4);
+    // s.insert(5);
+    // s.insert(8);
+
+    // // cout<<" lower bound = "<<*(s.lower_bound(4))<<endl; //value should be 4 or just greater than 4
+    // cout<<" lower bound = "<<*(s.upper_bound(5))<<endl; //value should be grater than 5
+    // cout<< s.size()<<endl;   //ignores duplicate value
+    // for(int val:s){
+    //     cout<< val << " ";   //not print duplicate values
+    // }
+
+
+
+    //UNORDERED SET
+    unordered_set<int> s;
+    s.insert(1);
+    s.insert(2);
+    s.insert(3);
+    s.insert(4);
+    s.insert(5);
+    for(int val:s){
+        cout<< val << " ";   
     }
-    cout<<"count is = "<<m.count("laptop")<<endl;
+
     return 0; 
 }
