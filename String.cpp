@@ -48,8 +48,20 @@ int main(){
     // string str2="priyanka";
     // cout<<(str1 == str2)<<endl;  //it is not possible in character
 
-    string str1="priyanka";
-    string str2="xyz";
-    cout<<(str1 < str2)<<endl;
+    // string str1="priyanka";
+    // string str2="xyz";
+    // cout<<(str1 < str2)<<endl;  //based on 1st letter
+    // cout<<str1.length()<<endl;
+
+    // string str1;
+    // // cin>>str1;   //stop taking input after space
+    // getline(cin,str1);   //for taking input
+    // cout<<"output is : "<<str1;
+
+    string str = "apna college.";
+    for(char ch:str){
+        cout<<ch<<" ";
+    }
+
     return 0;
 }
