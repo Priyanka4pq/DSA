@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstring>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 int main(){
@@ -58,10 +59,30 @@ int main(){
     // getline(cin,str1);   //for taking input
     // cout<<"output is : "<<str1;
 
-    string str = "apna college.";
-    for(char ch:str){
-        cout<<ch<<" ";
-    }
+    // string str = "apna college.";
+    // for(char ch:str){
+    //     cout<<ch<<" ";
+    // }
+
+
+
+    //REVERSE A STRING
+
+    // 1. for a character array
+
+    // char s[] = {'h','e','l','l','o','\0'};
+    // int st=0, end = strlen(s)-1;
+    // while(st<end){
+    //     swap(s[st++], s[end--]);
+    // }
+    // cout<<s<<" ";
+
+    // 2. for a string array
+
+    string str ="priyanka prajapati";
+
+    reverse(str.begin(), str.end());  //iterators
+    cout<<str<<endl;
 
     return 0;
 }
