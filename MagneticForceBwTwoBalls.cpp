@@ -5,7 +5,7 @@ using namespace std;
 
 bool isValid(vector<int>& position, int n, int m, int maxAllowedDistance ){
     int balls = 1, lastPosition = position[0];
-    for(int i = 0; i<n; i++){
+    for(int i = 1; i<n; i++){
         if(position[i] - lastPosition >= maxAllowedDistance){
             balls++;
             lastPosition = position[i];

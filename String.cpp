@@ -79,10 +79,10 @@ int main(){
 
     // 2. for a string array
 
-    string str ="priyanka prajapati";
+    // string str ="priyanka prajapati";
 
-    reverse(str.begin(), str.end());  //iterators
-    cout<<str<<endl;
+    // reverse(str.begin(), str.end());  //iterators
+    // cout<<str<<endl;
 
     return 0;
 }

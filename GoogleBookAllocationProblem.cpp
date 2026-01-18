@@ -5,17 +5,17 @@ using namespace std;
 bool isValid(vector<int> arr, int n, int m, int maxAllowedPages){   //O(n)
     int student = 1, pages =0;
     for(int i=0; i<n; i++){
-        if(arr[i] > maxAllowedPages){
+        if(arr[i] > maxAllowedPages){  //If one book itself has more pages than allowed, allocation is impossible.
             return false;
         }
-        if(pages + arr[i] <= maxAllowedPages){
+        if(pages + arr[i] <= maxAllowedPages){  //If current student can take the book
             pages += arr[i];
-        }else{
+        }else{    //Otherwise, assign new student
             student++;
             pages = arr[i]; 
         }
     }
-    return student > m ? false : true;
+    return student > m ? false : true;   //If students required exceed m, allocation fails.
 }
 
 int allocateBooks(vector<int> arr, int n, int m){   //O(logN * n)

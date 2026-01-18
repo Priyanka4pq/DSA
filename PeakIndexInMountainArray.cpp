@@ -10,8 +10,8 @@ int peakIndexInMountainArray(vector<int> nums){
         int mid = st + (end - st)/2;
         if(nums[mid-1] < nums[mid] && nums[mid] > nums[mid + 1])
         {
-            //  return nums[mid];
-            return mid;
+            //  return nums[mid];  //return value
+            return mid; //return index
         }else{
                 if(nums[mid-1] < nums[mid]){
                     st = mid+1;

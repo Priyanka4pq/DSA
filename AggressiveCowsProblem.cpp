@@ -17,7 +17,7 @@ bool isValid(const vector<int>& arr, int N, int C, int minAllowedDistance){  //O
 
 int AggressiveCowsProblem(vector<int>& arr, int N, int C){
     sort(arr.begin(),arr.end());  //NlogN
-    int st = 1, end = arr[N-1] - arr[0],  ans = -1;;
+    int st = 1, end = arr[N-1] - arr[0],  ans = -1;
 
     while(st<= end){   //O(log(Range)*N)
         int mid = st + (end - st)/2;

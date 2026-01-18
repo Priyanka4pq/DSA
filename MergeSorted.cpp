@@ -19,8 +19,6 @@ void MergeSorted(vector<int>& nums1, vector<int>& nums2, int m, int n){
     while( j>=0){
         nums1[k--] = nums2[j--];
     }
-
-  
 }
 
 int main(){
