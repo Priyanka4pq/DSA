@@ -2,7 +2,7 @@
 using namespace std;
     
     bool isAlphaNumeric(char ch){
-        if((ch >= '0' && ch <=9) || (tolower(ch) >= 'a' && tolower(ch) <= 'z')){
+        if((ch >= '0' && ch <='9') || (tolower(ch) >= 'a' && tolower(ch) <= 'z')){
             return true;
         }
         return false;
