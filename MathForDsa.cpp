@@ -86,27 +86,56 @@ using namespace std;
 
 
 //ARMSTRONG NUMBER
+// class Solution{
+//     public:
+//     bool isArmStrong(int n){
+//         int copyN = n;
+//         int sumOfCubes = 0;
+//         while(n != 0){
+//             int rem = n%10;
+//             sumOfCubes += rem*rem*rem;
+//             n = n/10;
+//         }
+//         return sumOfCubes == copyN;
+//     }
+// };
+// int main(){
+//     Solution obj;
+//     int n = 1353;
+
+//     if(obj.isArmStrong(n)){
+//         cout<<"Armstrong Number"<<endl;
+//     }else{
+//         cout<<"Not an Armstrong Number"<<endl;
+//     }
+// }
+
+
+//GCD AND LCM
+
 class Solution{
     public:
-    bool isArmStrong(int n){
-        int copyN = n;
-        int sumOfCubes = 0;
-        while(n != 0){
-            int rem = n%10;
-            sumOfCubes += rem*rem*rem;
-            n = n/10;
-        }
-        return sumOfCubes == copyN;
-    }
+    // int gcd(int a, int b){
+    //     while(a>0 && b>0){
+    //         if(a>b){
+    //             a = a%b;
+    //         }else{
+    //             b= b%a;
+    //         }
+    //     }
+    //     if(a == 0) return b;
+    //     return a;
+    // }
 
+    //via recursion
+    int gcd(int a, int b){
+        if(b == 0) return a;
+        return gcd(b, a%b);
+    }
 };
 int main(){
     Solution obj;
-    int n = 1353;
-
-    if(obj.isArmStrong(n)){
-        cout<<"Armstrong Number"<<endl;
-    }else{
-        cout<<"Not an Armstrong Number"<<endl;
-    }
+    // int a = 12, b= 15;
+    int a = 12, b= 0;
+    cout<<obj.gcd(a,b)<<endl;
 }
