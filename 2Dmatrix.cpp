@@ -140,26 +140,71 @@ using namespace std;
 // }
 
 
-//DIAGONAL SUM
+//DIAGONAL SUM --- O(N^2)
 
-int diagonalSum(int matrix[][4], int rows, int cols){
-    int sum = 0;
-    for(int i = 0; i<rows; i++){
-        for(int j =0; j<cols; j++){
-            if(i == j || (i + j) == rows - 1){
-                sum += matrix[i][j];
-                // cout<<matrix[i][j]<<" ";
-            }
-        }
-    }
-    return sum;
-}
+// int diagonalSum(int matrix[][4], int rows, int cols){
+//     int sum = 0;
+//     for(int i = 0; i<rows; i++){
+//         for(int j =0; j<cols; j++){
+//             if(i == j || (i + j) == rows - 1){
+//                 sum += matrix[i][j];
+//                 // cout<<matrix[i][j]<<" ";
+//             }
+//         }
+//     }
+//     return sum;
+// }
+
+// int main(){
+//     // int matrix[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+//     int matrix[4][4] = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+//     // int rows = 3, cols = 3;
+//     int rows = 4, cols = 4;
+//     cout<<diagonalSum(matrix, rows, cols)<<endl;
+//     return 0;
+// }
+
+
+//MORE OPTIMIZED DIAGONAL SUM -- O(N)
+
+// int diagonalSum(int matrix[][4], int n){
+//     int sum = 0;
+//     for(int i = 0; i<n; i++){
+//         sum += matrix[i][i]; //primary diagonal
+//         if(i != n-i-1){
+//             sum += matrix[i][n-i-1]; //secondary diagonal
+//         }
+        
+//     }
+//     return sum;
+// }
+
+// int main(){
+//     // int matrix[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+//     int matrix[4][4] = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+//     // int rows = 3, cols = 3;
+//     int n=4;
+//     cout<<diagonalSum(matrix, n)<<endl;
+//     return 0;
+// }
+
+
+
+
+
+
+//2D VECTOR
 
 int main(){
-    // int matrix[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
-    int matrix[4][4] = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
-    // int rows = 3, cols = 3;
-    int rows = 4, cols = 4;
-    cout<<diagonalSum(matrix, rows, cols)<<endl;
-    return 0;
+vector<vector<int>> matrix = {{1,2,3},{4,5,6,51,16},{7,8,9}};
+int rows = matrix.size();
+// int cols = matrix[i].size();
+
+for(int i =0; i<rows ; i++){
+    for(int j=0; j<matrix[i].size(); j++){
+        cout<<matrix[i][j]<<" ";
+    }
+    cout<<endl;
+}    
+return 0;
 }
