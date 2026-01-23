@@ -132,10 +132,15 @@ class Solution{
         if(b == 0) return a;
         return gcd(b, a%b);
     }
+    int lcm(int a, int b){
+        return (a*b)/gcd(a,b);
+    }
 };
 int main(){
     Solution obj;
     // int a = 12, b= 15;
-    int a = 12, b= 0;
+    int a = 12, b= 18;
     cout<<obj.gcd(a,b)<<endl;
+    cout<<obj.lcm(a,b)<<endl;
+    return 0;
 }
