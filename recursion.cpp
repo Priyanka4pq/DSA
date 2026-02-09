@@ -73,15 +73,42 @@ using namespace std;
 
 
 
-bool isSorted(vector<int> arr, int n){
+// bool isSorted(vector<int> arr, int n){
+//     //base case
+//     if(n ==0 || n == 1){
+//         return true;
+//     }
+//     return arr[n-1] >= arr[n-2] && isSorted(arr, n-1);
+// }
+// int main(){
+//     vector<int> arr = {1,2,3,4,5};
+//     cout<<isSorted(arr, arr.size())<<endl;
+//     return 0;
+// }
+
+
+bool binSearch(vector<int>& arr, int tar, int st, int end){
     //base case
-    if(n ==0 || n == 1){
-        return true;
+    if(st<=end){
+        int mid = st + (end-st)/2;
+        if(arr[mid] == tar){
+            return true;
+        }else if(arr[mid] >tar){
+            return binSearch(arr, tar, st, mid-1);
+        }else{
+            return binSearch(arr, tar, mid+1,end);
+        }
     }
-    return arr[n-1] >= arr[n-2] && isSorted(arr, n-1);
+    return false;
 }
+
 int main(){
-    vector<int> arr = {1,2,3,4,5};
-    cout<<isSorted(arr, arr.size())<<endl;
+    vector<int> arr = {1,2,3,4,5,8,9,10};
+    int tar = 3;
+     if (binSearch(arr, tar, 0, arr.size() - 1))
+        cout << "Found";
+    else
+        cout << "Not Found";
     return 0;
+    
 }
