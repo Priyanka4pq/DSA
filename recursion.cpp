@@ -87,28 +87,56 @@ using namespace std;
 // }
 
 
-bool binSearch(vector<int>& arr, int tar, int st, int end){
-    //base case
-    if(st<=end){
-        int mid = st + (end-st)/2;
-        if(arr[mid] == tar){
-            return true;
-        }else if(arr[mid] >tar){
-            return binSearch(arr, tar, st, mid-1);
-        }else{
-            return binSearch(arr, tar, mid+1,end);
-        }
-    }
-    return false;
-}
+// bool binSearch(vector<int>& arr, int tar, int st, int end){
+//     //base case
+//     if(st<=end){
+//         int mid = st + (end-st)/2;
+//         if(arr[mid] == tar){
+//             return true;
+//         }else if(arr[mid] >tar){
+//             return binSearch(arr, tar, st, mid-1);
+//         }else{
+//             return binSearch(arr, tar, mid+1,end);
+//         }
+//     }
+//     return false;
+// }
 
-int main(){
-    vector<int> arr = {1,2,3,4,5,8,9,10};
-    int tar = 3;
-     if (binSearch(arr, tar, 0, arr.size() - 1))
-        cout << "Found";
-    else
-        cout << "Not Found";
-    return 0;
+// int main(){
+//     vector<int> arr = {1,2,3,4,5,8,9,10};
+//     int tar = 3;
+//      if (binSearch(arr, tar, 0, arr.size() - 1))
+//         cout << "Found";
+//     else
+//         cout << "Not Found";
+//     return 0;
     
+// }
+
+
+
+
+void printSubsets(vector<int>& arr, vector<int>& ans, int index){
+    //base case
+    if(index == arr.size()){
+        for(int val : ans){
+            cout<<val<<" ";
+        }
+        cout<<endl;
+        return;
+    }
+
+    //include the current element
+    ans.push_back(arr[index]);
+    printSubsets(arr, ans, index+1);
+    ans.pop_back();  //backtrack
+    //exclude the current element
+    printSubsets(arr, ans, index+1);
+}
+int main(){
+    vector<int> arr = {1,2,3,4,5};
+    vector<int> ans;   //store subsets
+
+    printSubsets(arr, ans, 0);
+    return 0;
 }
