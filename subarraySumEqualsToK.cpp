@@ -22,10 +22,10 @@ int SubArraySumEqualsK(vector<int>& nums, int k){
         //case2 - subarray starts from index >0
         int requiredSum = prefixSum[j]-k;
         if(m.find(requiredSum) != m.end()){
-            count += m[requiredSum];
+            count += m[requiredSum];     //it count frequency
         }
         //update the frequency of the prefix sum
-        m[prefixSum[j]]++;
+        m[prefixSum[j]]++;   //Update the map
     }
     return count;
 }
