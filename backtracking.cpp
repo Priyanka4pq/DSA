@@ -108,73 +108,119 @@ using namespace std;
 
 //SUDUKO SOLVER - 37
 
-bool isSafe(vector<vector<char>>& board, int row, int col, char dig){
-    //check horizontal
-    for(int i=0; i<9; i++){
-        if(board[row][i] == dig)
-        return false;
-    }
+// bool isSafe(vector<vector<char>>& board, int row, int col, char dig){
+//     //check horizontal
+//     for(int i=0; i<9; i++){
+//         if(board[row][i] == dig)
+//         return false;
+//     }
 
-    //check vertically
-    for(int j=0; j<board.size(); j++){
-        if(board[j][col]==dig){
-            return false;
-        }
-    }
+//     //check vertically
+//     for(int j=0; j<board.size(); j++){
+//         if(board[j][col]==dig){
+//             return false;
+//         }
+//     }
 
-    //check 3*3 grid
-    int startRow = (row/3)*3;
-    int startCol = (col/3)*3;
-    for(int i=startRow; i<=startRow+2; i++){ 
-        for(int j=startCol; j<=startCol+2; j++){
-            if(board[i][j] == dig){
-                return false;
-            }
-        }
-    }
-    return true;
-}
+//     //check 3*3 grid
+//     int startRow = (row/3)*3;
+//     int startCol = (col/3)*3;
+//     for(int i=startRow; i<=startRow+2; i++){ 
+//         for(int j=startCol; j<=startCol+2; j++){
+//             if(board[i][j] == dig){
+//                 return false;
+//             }
+//         }
+//     }
+//     return true;
+// }
 
-bool helper(vector<vector<char>>& board, int row, int col){
+// bool helper(vector<vector<char>>& board, int row, int col){
+//     //base case
+//     if(row == board.size()) return true;
+//     if(col == board[0].size()) return helper(board, row+1, 0);
+
+//     if(board[row][col] != '.'){
+//         return helper(board,row,col+1);
+//     }
+
+//     for(char dig='1'; dig<='9'; dig++){
+//         if(isSafe(board,row,col,dig)){
+//             board[row][col] = dig;
+//             if(helper(board, row, col+1)) return true;
+//             board[row][col] = '.'; //backtrack
+//         }
+//     }
+//     return false;
+// }
+
+// int main(){
+//     vector<vector<char>> board = {
+//         {'5','3','.','.','7','.','.','.','.'},
+//         {'6','.','.','1','9','5','.','.','.'},
+//         {'.','9','8','.','.','.','.','6','.'},
+//         {'8','.','.','.','6','.','.','.','3'},
+//         {'4','.','.','8','.','3','.','.','1'},
+//         {'7','.','.','.','2','.','.','.','6'},
+//         {'.','6','.','.','.','.','2','8','.'},
+//         {'.','.','.','4','1','9','.','.','5'},
+//         {'.','.','.','.','8','.','.','7','9'}
+//     };
+//       if(helper(board, 0, 0)){
+//         for(int i=0;i<9;i++){
+//             for(int j=0;j<9;j++){
+//                 cout << board[i][j] << " ";
+//             }
+//             cout << endl;
+//         }
+//     } else {
+//         cout << "No solution exists" << endl;
+//     }
+//     return 0;
+// }
+
+
+
+
+//RAT IN A MAZE - 79
+
+void helper(vector<vector<int>>& matrix, int r, int c, string path, vector<string>& ans){
+    int n= matrix.size();
     //base case
-    if(row == board.size()) return true;
-    if(col == board[0].size()) return helper(board, row+1, 0);
-
-    if(board[row][col] != '.'){
-        return helper(board,row,col+1);
+    if(r >= n || c >= n || r <0 || c<0 ||matrix[r][c] == 0 || matrix[r][c] == -1){
+        return;
+    }
+    if(r == n-1 && c == n-1){
+        ans.push_back(path);
+        return;
     }
 
-    for(char dig='1'; dig<='9'; dig++){
-        if(isSafe(board,row,col,dig)){
-            board[row][col] = dig;
-            if(helper(board, row, col+1)) return true;
-            board[row][col] = '.'; //backtrack
-        }
-    }
-    return false;
+    matrix[r][c] = -1; //mark as visited
+    helper(matrix, r+1, c, path+'D', ans); //down
+    helper(matrix, r-1, c, path+'U', ans); //up
+    helper(matrix, r, c-1, path+'L', ans); //left
+    helper(matrix, r, c+1, path+'R', ans); //right
+
+    matrix[r][c] = 1; //backtrack
 }
 
+vector<string> findPath(vector<vector<int>>& matrix){
+    int n = matrix.size();
+    vector<string> ans;
+    string path = "";;
+    helper(matrix, 0, 0, path, ans);
+    return ans;
+}
 int main(){
-    vector<vector<char>> board = {
-        {'5','3','.','.','7','.','.','.','.'},
-        {'6','.','.','1','9','5','.','.','.'},
-        {'.','9','8','.','.','.','.','6','.'},
-        {'8','.','.','.','6','.','.','.','3'},
-        {'4','.','.','8','.','3','.','.','1'},
-        {'7','.','.','.','2','.','.','.','6'},
-        {'.','6','.','.','.','.','2','8','.'},
-        {'.','.','.','4','1','9','.','.','5'},
-        {'.','.','.','.','8','.','.','7','9'}
+    vector<vector<int>> matrix = {
+        {1, 0, 0, 0},
+        {1, 1, 0, 1},
+        {1, 1, 0, 0},
+        {0, 1, 1, 1}
     };
-      if(helper(board, 0, 0)){
-        for(int i=0;i<9;i++){
-            for(int j=0;j<9;j++){
-                cout << board[i][j] << " ";
-            }
-            cout << endl;
-        }
-    } else {
-        cout << "No solution exists" << endl;
+    vector<string> ans = findPath(matrix);
+    for(string path:ans){
+        cout<<path<<" ";
     }
-    return 0;
+    return 0; 
 }
