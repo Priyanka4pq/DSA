@@ -184,43 +184,82 @@ using namespace std;
 
 //RAT IN A MAZE - 79
 
-void helper(vector<vector<int>>& matrix, int r, int c, string path, vector<string>& ans){
-    int n= matrix.size();
-    //base case
-    if(r >= n || c >= n || r <0 || c<0 ||matrix[r][c] == 0 || matrix[r][c] == -1){
-        return;
-    }
-    if(r == n-1 && c == n-1){
-        ans.push_back(path);
-        return;
-    }
+// void helper(vector<vector<int>>& matrix, int r, int c, string path, vector<string>& ans){
+//     int n= matrix.size();
+//     //base case
+//     if(r >= n || c >= n || r <0 || c<0 ||matrix[r][c] == 0 || matrix[r][c] == -1){
+//         return;
+//     }
+//     if(r == n-1 && c == n-1){
+//         ans.push_back(path);
+//         return;
+//     }
 
-    matrix[r][c] = -1; //mark as visited
-    helper(matrix, r+1, c, path+'D', ans); //down
-    helper(matrix, r-1, c, path+'U', ans); //up
-    helper(matrix, r, c-1, path+'L', ans); //left
-    helper(matrix, r, c+1, path+'R', ans); //right
+//     matrix[r][c] = -1; //mark as visited
+//     helper(matrix, r+1, c, path+'D', ans); //down
+//     helper(matrix, r-1, c, path+'U', ans); //up
+//     helper(matrix, r, c-1, path+'L', ans); //left
+//     helper(matrix, r, c+1, path+'R', ans); //right
 
-    matrix[r][c] = 1; //backtrack
+//     matrix[r][c] = 1; //backtrack
+// }
+
+// vector<string> findPath(vector<vector<int>>& matrix){
+//     int n = matrix.size();
+//     vector<string> ans;
+//     string path = "";
+//     helper(matrix, 0, 0, path, ans);
+//     return ans;
+// }
+// int main(){
+//     vector<vector<int>> matrix = {
+//         {1, 0, 0, 0},
+//         {1, 1, 0, 1},
+//         {1, 1, 0, 0},
+//         {0, 1, 1, 1}
+//     };
+//     vector<string> ans = findPath(matrix);
+//     for(string path:ans){
+//         cout<<path<<" ";
+//     }
+//     return 0; 
+// }
+
+
+
+// PALINDROME PARTITIONING - 131
+
+bool isPalindrome(string s){
+    string s1 = s;
+    reverse(s1.begin(), s1.end());
+    return s == s1;
 }
 
-vector<string> findPath(vector<vector<int>>& matrix){
-    int n = matrix.size();
-    vector<string> ans;
-    string path = "";;
-    helper(matrix, 0, 0, path, ans);
-    return ans;
+void findPalindromePartitions(string s,vector<string>& partition, vector<vector<string>>& ans){
+    if(s.empty()){
+        ans.push_back(partition);
+        return;
+    }
+    for(int i = 0; i<s.size(); i++){
+        string part = s.substr(0,i+1);
+        if(isPalindrome(part)){
+            partition.push_back(part);
+            findPalindromePartitions(s.substr(i+1), partition, ans);
+            partition.pop_back(); //backtrack
+        }
+    }
 }
+
 int main(){
-    vector<vector<int>> matrix = {
-        {1, 0, 0, 0},
-        {1, 1, 0, 1},
-        {1, 1, 0, 0},
-        {0, 1, 1, 1}
-    };
-    vector<string> ans = findPath(matrix);
-    for(string path:ans){
-        cout<<path<<" ";
+    string s = "aab";
+    vector<vector<string>> ans;
+    vector<string> partition;
+    findPalindromePartitions(s, partition, ans);
+    for(auto p:ans){
+        for(auto str:p){
+            cout<<str<<" ";
+        }
+        cout<<endl;
     }
-    return 0; 
+    return 0;
 }
