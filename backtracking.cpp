@@ -229,37 +229,41 @@ using namespace std;
 
 // PALINDROME PARTITIONING - 131
 
-bool isPalindrome(string s){
-    string s1 = s;
-    reverse(s1.begin(), s1.end());
-    return s == s1;
-}
+// bool isPalindrome(string s){
+//     string s1 = s;
+//     reverse(s1.begin(), s1.end());
+//     return s == s1;
+// }
 
-void findPalindromePartitions(string s,vector<string>& partition, vector<vector<string>>& ans){
-    if(s.empty()){
-        ans.push_back(partition);
-        return;
-    }
-    for(int i = 0; i<s.size(); i++){
-        string part = s.substr(0,i+1);
-        if(isPalindrome(part)){
-            partition.push_back(part);
-            findPalindromePartitions(s.substr(i+1), partition, ans);
-            partition.pop_back(); //backtrack
-        }
-    }
-}
+// void findPalindromePartitions(string s,vector<string>& partition, vector<vector<string>>& ans){
+//     if(s.empty()){
+//         ans.push_back(partition);
+//         return;
+//     }
+//     for(int i = 0; i<s.size(); i++){
+//         string part = s.substr(0,i+1);
+//         if(isPalindrome(part)){
+//             partition.push_back(part);
+//             findPalindromePartitions(s.substr(i+1), partition, ans);
+//             partition.pop_back(); //backtrack
+//         }
+//     }
+// }
 
-int main(){
-    string s = "aab";
-    vector<vector<string>> ans;
-    vector<string> partition;
-    findPalindromePartitions(s, partition, ans);
-    for(auto p:ans){
-        for(auto str:p){
-            cout<<str<<" ";
-        }
-        cout<<endl;
-    }
-    return 0;
-}
+// int main(){
+//     string s = "aab";
+//     vector<vector<string>> ans;
+//     vector<string> partition;
+//     findPalindromePartitions(s, partition, ans);
+//     for(auto p:ans){
+//         for(auto str:p){
+//             cout<<str<<" ";
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+
+
+//
