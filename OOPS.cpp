@@ -177,6 +177,45 @@ using namespace std;
 
 //constructor overloading--- is a feature that allows a class to have more than one constructor with different sets of parameters.
 
+// class Volume{
+//     public:
+//         int l, b, h, vol;
+//         //default constructor
+//         Volume(){
+//             l = 0;
+//             b = 0;
+//             h = 0;
+//             vol = l * b * h;
+//             cout<<"Volume is : "<<vol<<endl;
+//         }
+
+//         //parameterized constructor
+//         Volume(int x, int y, int z){
+//             l = x;
+//             b = y;
+//             h = z;
+//             vol = l * b * h;
+//             cout<<"Volume is : "<<vol<<endl;
+//         }
+
+//         //copy constructor
+//         Volume( Volume &c){
+//             l = c.l;
+//             b = c.b;
+//             h = c.h;
+//             vol = l * b * h;
+//             cout<<"Volume is : "<<vol<<endl;
+//         }
+// };
+// int main(){
+//     Volume p;
+//     Volume p1(2,3,4);
+//     Volume p2(p1);
+//     return 0;
+// }
+
+
+//THIS POINTER
 class Volume{
     public:
         int l, b, h, vol;
@@ -190,16 +229,17 @@ class Volume{
         }
 
         //parameterized constructor
-        Volume(int x, int y, int z){
-            l = x;
-            b = y;
-            h = z;
+        Volume(int l, int b, int h){
+            this->l = l;
+            this->b = b;
+            this->h = h;
             vol = l * b * h;
             cout<<"Volume is : "<<vol<<endl;
         }
-
+        
         //copy constructor
         Volume( Volume &c){
+            cout<<"I am custom copy constructor"<<endl;
             l = c.l;
             b = c.b;
             h = c.h;
