@@ -153,23 +153,64 @@ using namespace std;
 // }
 
 
-class Teacher{
-public:
-    string name;
-    int age; 
-    string dept;
-    Teacher(string n, int a, string d){
-        name = n;
-        age = a;
-        dept = d;
-    }
-    void getInfo(){
-        cout<<"name is : "<<name;
-        cout<<"\nage is : "<<age;
-    }
+// class Teacher{
+// public:
+//     string name;
+//     int age; 
+//     string dept;
+//     Teacher(string n, int a, string d){
+//         name = n;
+//         age = a;
+//         dept = d;
+//     }
+//     void getInfo(){
+//         cout<<"name is : "<<name;
+//         cout<<"\nage is : "<<age;
+//     }
+// };
+// int main(){
+//     Teacher t1("priyanka",22,"computer science");
+//     t1.getInfo();
+//     return 0;
+// }
+
+
+//constructor overloading--- is a feature that allows a class to have more than one constructor with different sets of parameters.
+
+class Volume{
+    public:
+        int l, b, h, vol;
+        //default constructor
+        Volume(){
+            l = 0;
+            b = 0;
+            h = 0;
+            vol = l * b * h;
+            cout<<"Volume is : "<<vol<<endl;
+        }
+
+        //parameterized constructor
+        Volume(int x, int y, int z){
+            l = x;
+            b = y;
+            h = z;
+            vol = l * b * h;
+            cout<<"Volume is : "<<vol<<endl;
+        }
+
+        //copy constructor
+        Volume( Volume &c){
+            l = c.l;
+            b = c.b;
+            h = c.h;
+            vol = l * b * h;
+            cout<<"Volume is : "<<vol<<endl;
+        }
 };
 int main(){
-    Teacher t1("priyanka",22,"computer science");
-    t1.getInfo();
+    Volume p;
+    Volume p1(2,3,4);
+    Volume p2(p1);
     return 0;
 }
+
