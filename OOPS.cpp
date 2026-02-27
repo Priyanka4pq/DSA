@@ -477,18 +477,133 @@ using namespace std;
 
 //--- FUNCTION OVERLOADING
 
-class Print{
-public:
-    void show(int x){
-        cout<<"int x : "<<x<<endl;
-    }
-    void show(char x){
-        cout<<"char x : "<<x<<endl;
-    }
-};
+// class Print{
+// public:
+//     void show(int x){
+//         cout<<"int x : "<<x<<endl;
+//     }
+//     void show(char x){
+//         cout<<"char x : "<<x<<endl;
+//     }
+// };
+// int main(){
+//     Print p1;
+//     p1.show(223);
+//     p1.show('#');
+//     return 0;
+// }
+
+
+
+
+//OPERATOR OVERLOADING
+
+// class test{
+//     public:
+//         int x, y;
+//         test(int a, int b){
+//             x = a;
+//             y = b;
+//         }
+//         void show(){
+//             cout<<"X = "<<x<<" "<<"Y ="<<y<<endl;
+//         }
+//             void operator++(){
+//                 x = ++x;
+//                 y = ++y;
+//             }
+// };
+// int main(){
+//     test t1(3,4);
+//     cout<<"Before overloading : ";
+//     t1.show();
+//     ++t1; //apply overloaded increment operator(++)
+//     cout<<"After overloading : ";
+//     t1.show();
+//     return 0;
+// }
+
+
+//FUNCTION OVERRIDING
+// class Parent{
+//     public:
+//         void show(){
+//             cout<<"Parent cls"<<endl;
+//         }
+// };
+// class Child : public Parent{
+//    public:
+//         void show(){
+//             cout<<"Child cls"<<endl;
+//         } 
+// };
+// int main(){
+//     Child c1;
+//     c1.show();
+//     return 0;
+// }
+
+
+//VIRTUAL FUNCTION
+// class Parent{
+//     public:
+//         void show(){
+//             cout<<"Parent cls"<<endl;
+//         }
+//         virtual void helo(){
+//             cout<<"Virtual Parent cls"<<endl;
+//         }
+// };
+// class Child : public Parent{
+//    public:
+//         void show(){
+//             cout<<"Child cls"<<endl;
+//         } 
+//         void helo(){
+//             cout<<"Virtual child cls"<<endl;
+//         }
+// };
+// int main(){
+//     Child c1;
+//     c1.show();
+//     c1.helo();
+//     return 0;
+// }
+
+
+//ABSTRACTION----->
+// class Shape{
+// public:
+//     virtual void draw() = 0;  // Pure virtual function
+// };
+// class Circle: public Shape{
+//     private:
+//         double radius;
+//         public:
+//         Circle(double r) : radius(r){}
+//             void draw() override {
+//                 cout<<"Area is : "<<3.14*radius*radius<<endl;
+//         }
+// };
+// int main(){
+//     Shape *s1 = new Circle(5.0);
+//     s1->draw();
+//     delete s1;
+//     return 0;
+// }
+
+
+
+//STATIC KEYWORD
+void func(){
+    static int x = 0;
+    cout<<"X is : "<<x<<endl;
+    x++;
+}
 int main(){
-    Print p1;
-    p1.show(223);
-    p1.show('#');
+    func();
+    func();
+    func();
+    func();
     return 0;
 }
