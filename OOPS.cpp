@@ -216,41 +216,177 @@ using namespace std;
 
 
 //THIS POINTER
-class Volume{
-    public:
-        int l, b, h, vol;
-        //default constructor
-        Volume(){
-            l = 0;
-            b = 0;
-            h = 0;
-            vol = l * b * h;
-            cout<<"Volume is : "<<vol<<endl;
-        }
+// class Volume{
+//     public:
+//         int l, b, h, vol;
+//         //default constructor
+//         Volume(){
+//             l = 0;
+//             b = 0;
+//             h = 0;
+//             vol = l * b * h;
+//             cout<<"Volume is : "<<vol<<endl;
+//         }
 
-        //parameterized constructor
-        Volume(int l, int b, int h){
-            this->l = l;
-            this->b = b;
-            this->h = h;
-            vol = l * b * h;
-            cout<<"Volume is : "<<vol<<endl;
-        }
+//         //parameterized constructor
+//         Volume(int l, int b, int h){
+//             this->l = l;
+//             this->b = b;
+//             this->h = h;
+//             vol = l * b * h;
+//             cout<<"Volume is : "<<vol<<endl;
+//         }
         
-        //copy constructor
-        Volume( Volume &c){
-            cout<<"I am custom copy constructor"<<endl;
-            l = c.l;
-            b = c.b;
-            h = c.h;
-            vol = l * b * h;
-            cout<<"Volume is : "<<vol<<endl;
-        }
+//         //copy constructor
+//         Volume( Volume &c){
+//             cout<<"I am custom copy constructor"<<endl;
+//             l = c.l;
+//             b = c.b;
+//             h = c.h;
+//             vol = l * b * h;
+//             cout<<"Volume is : "<<vol<<endl;
+//         }
+// };
+// int main(){
+//     Volume p;
+//     Volume p1(2,3,4);
+//     Volume p2(p1);
+//     return 0;
+// }
+
+
+
+
+//DEEP AND SHALLOW COPY
+// class Student
+// {
+// public:
+//     string name;
+//     double *cgpaptr;
+
+//     Student(string name, double cgpa){
+//         this->name = name;
+//         cgpaptr = new double;   //new memory assign krna
+//         *cgpaptr = cgpa;
+//     }
+//     Student(Student &obj){
+//         this->name = obj.name;
+//         cgpaptr = new double;
+//         *cgpaptr = *(obj.cgpaptr);
+//     }
+//     void getInfo(){
+//         cout<<"name : "<<name<<endl;
+//         cout<<"cgpa : "<<*cgpaptr<<endl;
+//     }
+// };
+// int main(){
+//     Student s1("Rahul kumar", 8.9);
+//     Student s2(s1);
+//     s1.getInfo();
+//     *(s2.cgpaptr) = 9.3;
+//     s1.getInfo();
+
+//     s2.name = "neha";
+//     s2.getInfo();
+//     return 0;
+// }
+
+
+
+//DESTRUCTOR
+
+// class Student
+// {
+// public:
+//     string name;
+//     double *cgpaptr;
+
+//     Student(string name, double cgpa){
+//         this->name = name;
+//         cgpaptr = new double;   //new memory assign krna
+//         *cgpaptr = cgpa;
+//     }
+//     ~Student(){
+//         cout<<"I  am a destructor"<<endl;
+//         delete cgpaptr;
+//     }
+//     void getInfo(){
+//         cout<<"name : "<<name<<endl;
+//         cout<<"cgpa : "<<*cgpaptr<<endl;
+//     }
+// };
+// int main(){
+//     Student s1("Rahul kumar", 8.9);
+//     s1.getInfo();
+//     return 0;
+// }
+
+
+
+
+//--> INHERITANCE
+
+// 1. Single inheritance
+
+// class Person{
+// public:
+//     string name;
+//     int age;
+//     Person(string name, int age){
+//         this->name = name;
+//         this->age = age;
+        
+//     }
+//     // Person(){
+//     //     cout<<"this is parent constructor"<<endl;
+//     // }
+// };
+// class Students : public Person{
+// public:
+//     int roll_no;
+//     Students(string name, int age, int roll_no): Person( name,age){
+//         cout<<"child constructor"<<endl;
+//     }
+//     void getInfo(){
+//         cout<<"name : "<<name<<endl; 
+//         cout<<"age : "<<age<<endl; 
+//         cout<<"roll no. : "<<roll_no<<endl; 
+//     }
+
+// };
+// int main(){
+//     Students s1("Priyanka", 22,79);
+//     s1.getInfo();
+//     return 0;
+// }
+
+
+// 2. Multilevel Inheritance
+
+class Person
+{
+public:
+    string name;
+    int age;
+
+};
+class Student: public Person{
+public:
+    int roll_no;
+
+
+
+};
+class GradStudent: public Student{
+public:
+    string researchArea;
+
 };
 int main(){
-    Volume p;
-    Volume p1(2,3,4);
-    Volume p2(p1);
+    GradStudent g1;
+    g1.name = "Priyanka";
+    g1.researchArea = "quantum Physics";
+    cout<<g1.name<<endl;
+    cout<<g1.researchArea<<endl;
     return 0;
 }
-
