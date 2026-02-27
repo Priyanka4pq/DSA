@@ -363,30 +363,132 @@ using namespace std;
 
 // 2. Multilevel Inheritance
 
-class Person
-{
+// class Person
+// {
+// public:
+//     string name;
+//     int age;
+
+// };
+// class Student: public Person{
+// public:
+//     int roll_no;
+// };
+// class GradStudent: public Student{
+// public:
+//     string researchArea;
+
+// };
+// int main(){
+//     GradStudent g1;
+//     g1.name = "Priyanka";
+//     g1.researchArea = "quantum Physics";
+//     cout<<g1.name<<endl;
+//     cout<<g1.researchArea<<endl;
+//     return 0;
+// }
+
+
+
+//3. MULTIPLE INHERITANCE
+
+// class Student
+// {
+// public:
+//     string name;
+//     int roll_no;
+// };
+// class Teacher
+// {
+// public:
+//     string subject;
+//     double salary;
+// };
+// class TA : public Student, public Teacher
+// {
+//     public:
+//     void display(){
+//        cout<<"name : "<<name<<" "<<"roll no. : "<<roll_no<<" "<<"Subject : "<<subject<<" "<<"salary : "<<salary<<endl;
+//     }
+// };
+// int main(){
+//     TA t1;
+//     t1.name="Priyanka";
+//     t1.roll_no=22;
+//     t1.subject = "computer Science";
+//     t1.salary = 23000.00;
+//     t1.display();
+//     return 0;
+// }
+
+
+
+//HIERARCHICAL INHERITANCE
+// class Person{
+//     public:
+//      string name;
+//      int age;
+// };
+// class Student: public Person{
+//     public:
+//         int roll_no;
+//          void show(string name, int roll_no){
+//             cout<<"name is : "<<name<<" "<<"roll no. is : "<<roll_no<<endl;
+//         }
+// };
+// class Teacher: public Person{
+//     public:
+//         double salary;
+//         void display(string name, double salary){
+//             cout<<"name is : "<<name<<" "<<"salary is : "<<salary<<endl;
+//         }
+// };
+// int main(){
+//     Teacher t1;
+//     t1.display("Priyanka" , 22000.00);
+//     Student s1;
+//     s1.show("rahul", 23);
+//     return 0;
+// }
+
+
+
+//CONSTRUCTOR OVERLOADING
+// class Student
+// {
+//     public:
+//         string name;
+
+//         Student(){
+//                 cout<<"non-parametric constructor"<<endl;
+//         }
+//         Student(string name){
+//             this->name = name;
+//             cout<<name<<endl;
+//             cout<<"Parametric constructor"<<endl;
+//         }
+// };
+// int main(){
+//     Student s1("Priyanka");
+//     return 0;
+// }
+
+
+
+//--- FUNCTION OVERLOADING
+
+class Print{
 public:
-    string name;
-    int age;
-
-};
-class Student: public Person{
-public:
-    int roll_no;
-
-
-
-};
-class GradStudent: public Student{
-public:
-    string researchArea;
-
+    void show(int x){
+        cout<<"int x : "<<x<<endl;
+    }
+    void show(char x){
+        cout<<"char x : "<<x<<endl;
+    }
 };
 int main(){
-    GradStudent g1;
-    g1.name = "Priyanka";
-    g1.researchArea = "quantum Physics";
-    cout<<g1.name<<endl;
-    cout<<g1.researchArea<<endl;
+    Print p1;
+    p1.show(223);
+    p1.show('#');
     return 0;
 }
