@@ -595,15 +595,79 @@ using namespace std;
 
 
 //STATIC KEYWORD
-void func(){
-    static int x = 0;
-    cout<<"X is : "<<x<<endl;
-    x++;
-}
-int main(){
-    func();
-    func();
-    func();
-    func();
-    return 0;
-}
+//in function
+// void func(){
+//     static int x = 0;
+//     cout<<"X is : "<<x<<endl;
+//     x++;
+// }
+// int main(){
+//     func();
+//     func();
+//     func();
+//     func();
+//     return 0;
+// }
+
+
+// in class
+// class A{
+// public:
+//     int x;
+
+//     void increX(){
+//         x++;
+//     }
+// };
+// int main(){
+//     A obj1;
+//     obj1.x = 10;
+//     cout<<obj1.x<<endl;
+//     obj1.increX();
+//     cout<<obj1.x<<endl;
+//      obj1.increX();
+//     cout<<obj1.x<<endl;
+
+//     A obj2;
+//     obj2.x = 10;
+//     cout<<obj2.x<<endl;
+//     return 0;
+// }
+
+
+//STATIC OBJECT
+// class ABC{
+// public:
+//     ABC(){
+//         cout<<"Constructor\n";
+//     }
+//     ~ABC(){
+//         cout<<"destructor\n";
+//     }
+// };
+// int main(){
+//     if(true){
+//         ABC obj;
+//     }
+//     cout<<"end of main fn.";
+//     return 0;
+// }
+
+// but if we use static then-- phle pura code run hoga uske baad destructor call hoga
+
+// class ABC{
+// public:
+//     ABC(){
+//         cout<<"Constructor\n";
+//     }
+//     ~ABC(){
+//         cout<<"destructor\n";
+//     }
+// };
+// int main(){
+//     if(true){
+//        static ABC obj;
+//     }
+//     cout<<"end of main fn.\n";
+//     return 0;
+// }
