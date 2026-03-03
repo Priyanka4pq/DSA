@@ -91,6 +91,7 @@ class List
             }
         }
 
+        //INSERTION IN LINKED LIST at any position
         void insert(int pos, int val){
             if(pos < 0){
                 cout<<"Invalid position\n";
@@ -111,6 +112,38 @@ class List
             Node* newNode = new Node(val);
             newNode->next = temp->next;
             temp->next = newNode;
+        }
+
+        //DELETION IN LINKED LIST at any position
+        void erase(int pos){
+            if(head == NULL){
+                cout<<"there is no node\n";
+                return;
+            }
+            if(pos < 0){
+                cout<<"Invalid position\n";
+                return;
+            }
+            if(pos == 0){
+                pop_front();
+                return;
+            }
+            Node* temp = head;
+            for(int i =0; i<pos-1; i++){
+                if(temp == NULL){
+                    cout<<"Position out of bounds\n";
+                    return;
+                }
+                temp = temp->next;
+            }
+            if(temp->next == NULL){
+                cout<<"Position out of bounds\n";
+                return;
+            }
+            Node* del = temp->next;
+            temp->next = del->next;
+            del->next = NULL;
+            delete del;
         }
 
         //SEARCHING IN LINKED LIST
@@ -148,6 +181,7 @@ int main(){
 
     cout<<ll.search(11)<<endl;
     ll.insert(0,10);
+    ll.erase(3);
 
 
     ll.printll();
