@@ -58,15 +58,77 @@ class List
                 cout<<"there is no node\n";
                 return;
             }else{
-                Node* temp = head;
-                while(temp->next->next != NULL){
-                    temp = temp->next;
+                // WHEN WE DON'T KNOW THE TAIL POINTER
+
+                //  if(head->next == NULL){
+                //     delete head;
+                //     head = tail = NULL;
+                //     return; 
+                // }
+
+                // Node* temp = head;
+                // while(temp->next->next != NULL){
+                //     temp = temp->next;
+                // }
+                // Node* del = temp->next;
+                // temp->next = NULL;
+                // delete del;
+
+                // WHEN WE KNOW THE TAIL POINTER
+                if(head->next == NULL){
+                    delete head;
+                    head = tail = NULL;
+                    return;
+                }else{
+                    Node *temp = head;
+                    while(temp->next != tail){
+                        temp = temp->next;
+                    }
+                    temp->next = NULL;
+                    delete tail;
+                    tail = temp;
                 }
-                Node* del = temp->next;
-                temp->next = NULL;
-                delete del;
             }
         }
+
+        void insert(int pos, int val){
+            if(pos < 0){
+                cout<<"Invalid position\n";
+                return;
+            }
+            if(pos == 0){
+                push_front(val);
+                return;
+            }
+            Node* temp = head;
+            for(int i =0; i <pos-1; i++){
+                if(temp == NULL){
+                    cout<<"Position out of bounds\n";
+                    return;
+                }
+                temp = temp->next;
+            }
+            Node* newNode = new Node(val);
+            newNode->next = temp->next;
+            temp->next = newNode;
+        }
+
+        //SEARCHING IN LINKED LIST
+
+        int search(int key){
+            Node* temp = head;
+            int idx = 0;
+
+            while(temp != NULL){
+                if(temp->data == key){
+                    return idx;
+                }
+                temp = temp->next;
+                idx++;
+            }
+            return -1; // not found
+        }
+
         void printll(){
             Node* temp = head;
             while(temp != NULL){
@@ -82,11 +144,16 @@ int main(){
     ll.push_front(2);
     ll.push_front(3);
     ll.push_back(4);
+    ll.printll();
+
+    cout<<ll.search(11)<<endl;
+    ll.insert(0,10);
+
 
     ll.printll();
-    ll.pop_front();
-    ll.printll();
-    ll.pop_back();
-    ll.printll();
+    // ll.pop_front();
+    // ll.printll();
+    // ll.pop_back();
+    // ll.printll();
     return 0;
 }
