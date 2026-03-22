@@ -113,8 +113,8 @@
 //     int n = 153, sum = 0, temp = n;
 
 //     while (temp > 0) {
-//         int digit = temp % 10;
-//         sum += pow(digit, 3);
+//         int rem = temp % 10;
+//         sum += pow(rem, 3);
 //         temp /= 10;
 //     }
 
@@ -146,6 +146,7 @@
 
 //     return 0;
 // }
+
 // 🔹 7. Sum of Digits
 
 // Problem:
