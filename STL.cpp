@@ -40,30 +40,6 @@ using namespace std;
     // }
 
 
-
-        list<int> l;   //created a list
-
-    l.push_back(1);
-    l.push_back(2);
-    l.push_front(3);
-    l.push_front(4);
-    
-    for(int val : l){
-        cout<< val <<" ";
-    }
-    cout<<endl;
-    l.pop_back();  //pop from the last
-    l.pop_front();   //pop from the front
-    for(int val : l){
-        cout<< val <<" ";
-    }
-
-
-    list<int> l = {1,2,3,4,5,6};
-    for(int val : l){
-        cout<<val<<" ";
-    }
-
     // 2. DEQUE: DOUBLE ENDED QUEUE
     // deque<int> d = {1,2,3,4,5};
     // for(int val : d){

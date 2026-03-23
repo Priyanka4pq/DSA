@@ -162,6 +162,19 @@ class List
             return -1; // not found
         }
 
+        Node* reversell(){
+            Node* prev = NULL;
+            Node* curr = head;
+            Node* next = NULL;
+            while(curr != NULL){
+                next = curr->next;
+                curr->next = prev;
+                prev = curr;
+                curr = next;
+            }
+            head = prev;
+        }
+
         void printll(){
             Node* temp = head;
             while(temp != NULL){
@@ -184,6 +197,8 @@ int main(){
     ll.erase(3);
 
 
+    ll.printll();
+    ll.reversell();
     ll.printll();
     // ll.pop_front();
     // ll.printll();
