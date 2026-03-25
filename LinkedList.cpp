@@ -26,7 +26,7 @@ public:
 
     void push_front(int val)
     {
-        Node *newNode = new Node(val); // dynamic
+        Node *newNode = new Node(val); // dynamic 
         if (head == NULL)
         {
             head = tail = newNode;
