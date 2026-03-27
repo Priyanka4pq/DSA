@@ -44,6 +44,40 @@ class CircularList{
             tail->next = head;
         }
     }
+    void pop_front(){
+         if(head == NULL){
+            cout<<"LL is empty"<<endl;
+        }else if(head == tail){
+            delete head;
+            return;
+        }else{
+            Node* temp = head;
+            head = head->next;
+            tail->next = head;
+            temp->next = NULL;
+            delete temp;
+        }
+    }
+
+    void pop_back(){
+         if(head == NULL){
+            cout<<"LL is empty"<<endl;
+        }else if(head == tail){
+            delete head;
+            return;
+        }else{
+            Node* temp = tail;
+           while(temp->next != tail){
+            temp = temp->next;
+        }
+
+        // temp is now previous of tail
+        delete tail;
+        tail = temp;
+        tail->next = head;
+        }
+    }
+
 
     void print(){
         if(head == NULL) return;
@@ -55,7 +89,7 @@ class CircularList{
             cout<<temp->data<<"->";
             temp = temp->next;
         }
-        cout<<temp->data;
+        cout<<temp->data<<endl;
     }
 
 };
@@ -66,6 +100,10 @@ int main() {
     cll.push_front(3);
     cll.push_back(4);
     cll.push_back(5);
+    cll.print();
+    cll.pop_front();
+    cll.print();
+    cll.pop_back();
     cll.print();
     return 0;
 }
