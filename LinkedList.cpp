@@ -26,7 +26,7 @@ public:
 
     void push_front(int val)
     {
-        Node *newNode = new Node(val); // dynamic 
+        Node *newNode = new Node(val); // dynamic
         if (head == NULL)
         {
             head = tail = newNode;
@@ -229,6 +229,42 @@ public:
         return slow;
     }
 
+    Node *solve(Node *head, int k)
+    {
+        if (head == NULL || head->next == NULL)
+        {
+            return head;
+        }
+        int count = 0;
+        Node *temp = head;
+        while (count < k)
+        {
+            if (temp == NULL)
+            {
+                return head; // less than k nodes → no reversal
+            }
+            temp = temp->next;
+            count++;
+        }
+        Node *prevNode = solve(temp, k);
+
+        temp = head;
+        count = 0;
+        while (count < k)
+        {
+            Node *next = temp->next;
+            temp->next = prevNode;
+            prevNode = temp;
+            temp = next;
+            count++;
+        }
+        return prevNode;
+    }
+
+    void ReverseNodesInKgroup(int k) {
+    head = solve(head, k);
+}
+
     void printll()
     {
         Node *temp = head;
@@ -259,6 +295,14 @@ int main()
 
     Node *mid = ll.middeleNode();
     cout << "Middle: " << mid->data << endl;
+
+      int k = 2;
+
+    ll.ReverseNodesInKgroup(k);
+
+    cout << "After reversing in k-group:\n";
+    ll.printll();
+
     // ll.pop_front();
     // ll.printll();
     // ll.pop_back();
