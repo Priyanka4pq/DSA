@@ -8,7 +8,7 @@ int getCelebrity(vector<vector<int>> &arr){
     for(int i=0;i<n;i++){
         st.push(i);
     }
-    while(st.size()>1){
+    while(st.size()>1){  //means we have minimum 2 element in stack
         int i = st.top();
         st.pop();
 
