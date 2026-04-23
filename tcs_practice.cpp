@@ -109,24 +109,133 @@ using namespace std;
 
 
 
-void moveZeroToEnd(vector<int>& arr, int n){
+// void moveZeroToEnd(vector<int>& arr, int n){
 
-   int j =0;
-   for(int i =0; i<n; i++){
-    if(arr[i] != 0){
-        swap(arr[i],arr[j]);
-        j++;
+//    int j =0;
+//    for(int i =0; i<n; i++){
+//     if(arr[i] != 0){
+//         swap(arr[i],arr[j]);
+//         j++;
+//     }
+//    }
+
+// }
+
+// int main(){
+//     vector<int> arr = {0,1,0,3,12,0,0,4,6,3,0,5};
+//     int n = arr.size();
+//     moveZeroToEnd(arr, n);
+//     for(int i:arr){
+//         cout<<i<<" ";
+//     }
+//     return 0;
+// }
+
+
+
+// int missingNumber(vector<int>& arr, int n){
+//     int total = n*(n+1)/2;
+//     int actual = 0;
+//     for(int c:arr){
+//         actual += c;
+//     }
+//     return total - actual;
+// }
+
+// int main(){
+//     vector<int> arr = {1,2,3,5,6,7};
+//     int n = 7;
+//     cout<<missingNumber(arr, n);
+//     return 0;
+// }
+
+// int removeDuplicates(vector<int>& arr, int n){
+//     if(n==0) return 0;
+//     int i=0;
+//     for(int j=1; j<n ; j++){
+//         if(arr[i]!= arr[j]){
+//             i++;
+//             arr[i] = arr[j];
+//         }
+//     }
+//     return i+1;
+// }
+
+
+
+
+// int main(){
+//     vector<int> arr = {1,2,2,3,4,4,5};
+//     int n = arr.size();
+//     cout<<removeDuplicates(arr,n);
+//     return 0;
+// }
+// bool isPalindrome(string s1){
+//     int l =0, r = s1.length()-1;
+//     while(l<r){
+//         if(s1[l] != s1[r]){
+//             return false;
+//         }
+//         l++;r--;
+//     }
+//     return true;
+// }
+
+
+// int main(){
+//     string s1 = "madam";
+//     if(isPalindrome(s1)){
+//         cout<<"Palindrome";
+//     }else{
+//         cout<<"Not Palindrome";
+//     }
+//     return 0;
+// }
+
+
+// int removeDuplicates(vector<int>& arr, int n){
+//     unordered_set<int> s;
+//     if(n==0) return 0;
+//     for(int x : arr){
+//         if(s.count(x)){
+//             return x;
+//         }
+//         s.insert(x);
+//     }
+//     return -1; //if no duplicate found
+
+// }
+// int main(){
+//     vector<int> arr = {1,2,3,3,4,5,6};
+//     int n = arr.size();
+//     cout<<removeDuplicates(arr,n);
+//     return 0;
+// }
+
+
+vector<int> mergeSortedArrays(vector<int>& arr1, vector<int>& arr2, int n1, int n2){
+    vector<int> result;
+    int i=0,j=0;
+    while(i<n1 && j<n2){
+        if(arr1[i] <arr2[j]){
+            result.push_back(arr1[i]);
+            i++;
+        }else{
+            result.push_back(arr2[j]);
+            j++;
+        }
     }
-   }
-
+    return result;
 }
 
 int main(){
-    vector<int> arr = {0,1,0,3,12,0,0,4,6,3,0,5};
-    int n = arr.size();
-    moveZeroToEnd(arr, n);
-    for(int i:arr){
-        cout<<i<<" ";
-    }
+    vector<int> arr1 = {1,3,5,7,9};
+    vector<int> arr2 = {5,6,8,10,11};
+    int n1 = arr1.size();
+    int n2 = arr2.size();
+     vector<int> answer =mergeSortedArrays(arr1, arr2, n1, n2);
+     for(int x: answer){
+        cout<<x<<" ";
+     }
     return 0;
 }
